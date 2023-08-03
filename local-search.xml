@@ -27,11 +27,11 @@
   
   
   <entry>
-    <title>test_</title>
+    <title>test</title>
     <link href="/2023/07/26/test/"/>
     <url>/2023/07/26/test/</url>
     
-    <content type="html"><![CDATA[<h1 id="我是标题"><a href="#我是标题" class="headerlink" title="我是标题"></a>我是标题</h1><p>这里是文章内容</p><p>over~</p>]]></content>
+    <content type="html"><![CDATA[<p>现在好多地方还比较简陋，先记下来：</p><ul><li>首页的文字设为显示封面更好，显示一大段文字看着难受</li><li>代码框的样式得换掉，太丑了，想换成mac主题的</li><li>我需要一个临时的，私密的发布页…</li></ul><p>先这样，等我慢慢改吧</p>]]></content>
     
     
     
