@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/08/31/RHIA3auryCzQ7cL.png">
 <meta property="article:published_time" content="2023-08-30T14:57:13.000Z">
-<meta property="article:modified_time" content="2023-08-31T02:42:41.766Z">
+<meta property="article:modified_time" content="2023-09-01T16:14:53.063Z">
 <meta property="article:author" content="Kjasn">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
@@ -332,11 +332,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote add repoName repoAddr <span class="hljs-comment"># repoName 远程仓库名  repoAddr 远程仓库地址</span><br><br><span class="hljs-comment"># eg: </span><br>git remote add origin_ssh git@github.com:git/git.git <span class="hljs-comment"># 添加 git@github.com:git/git.git（该地址为 ssh 协议，下一行的是 http 协议） ，命名为 origin_ssh ，以下同理</span><br>git remote add origin_http https://github.com/git/git.git<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>演示如下：</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc7eb792d09b45c2804b66183e034d70~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=534&h=237&s=23357&e=png&b=000000" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://s2.loli.net/2023/09/02/NMU1wuD9kPAopqK.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote add origin git@github.com:git/git.git <span class="hljs-comment"># 添加 git@github.com:git/git.git（ssh 协议的）仓库地址，命名为 origin </span><br></code></pre></td></tr></table></figure>
 
 <p><strong>默认 pull 和 push url 是同一个：</strong></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f6359caeac44bc6989ab15b84ded42f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=469&h=121&s=11292&e=png&b=000000" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://s2.loli.net/2023/09/02/CFEwYl6uSBGbItj.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote set-url --add --push origin git@github.com:my_repo/git.git <span class="hljs-comment"># 设置push url 为 git@github.com:my_repo/git.git</span><br></code></pre></td></tr></table></figure>
 
 <p>结果：</p>
@@ -413,7 +413,7 @@
 <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13a29fcc44a84f258d77f014bef9febd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=550&h=148&s=18858&e=png&b=000000" srcset="/img/loading.gif" lazyload alt="image.png"><br>后：</p>
 <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b1650177e764f6399a351c1d57175cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=539&h=146&s=17913&e=png&b=000000" srcset="/img/loading.gif" lazyload alt="image.png"></p>
 <ol start="2">
-<li>git rebase<br>通过 git rebase -i HEAD-3 可以实现对最近三个 commit 的修改：<ol>
+<li>git rebase<br>  通过 git rebase -i HEAD-3 可以实现对最近三个 commit 的修改：<ol>
 <li>合并 commit</li>
 <li>修改具体的 commit message</li>
 <li>删除某个 commit</li>
@@ -561,6 +561,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/09/16/%E5%9B%9B%E5%A4%A7%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%882%EF%BC%89-gin-gorm%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95crud/" title="四大请求方式（2）- gin+gorm实现简单crud">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">四大请求方式（2）- gin+gorm实现简单crud</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
