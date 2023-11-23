@@ -16,20 +16,20 @@
   <meta name="author" content="Kjasn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.1 Git 目录介绍项目初始化">
+    <meta name="description" content="1.1 Git 目录介绍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 基本使用方法">
 <meta property="og:url" content="https://kjasn.github.io/2023/08/30/Git-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Kjasn&#39;s World">
-<meta property="og:description" content="1.1 Git 目录介绍项目初始化">
+<meta property="og:description" content="1.1 Git 目录介绍">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2023/08/31/RHIA3auryCzQ7cL.png">
+<meta property="og:image" content="https://s2.loli.net/2023/11/23/vXTK6dGW52iJgsR.png">
 <meta property="article:published_time" content="2023-08-30T14:57:13.000Z">
-<meta property="article:modified_time" content="2023-10-09T14:28:48.434Z">
+<meta property="article:modified_time" content="2023-11-23T05:21:32.806Z">
 <meta property="article:author" content="Kjasn">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/08/31/RHIA3auryCzQ7cL.png">
+<meta name="twitter:image" content="https://s2.loli.net/2023/11/23/vXTK6dGW52iJgsR.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -328,9 +328,9 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1-1-Git-目录介绍"><a href="#1-1-Git-目录介绍" class="headerlink" title="1.1 Git 目录介绍"></a>1.1 Git 目录介绍</h2><p><strong>项目初始化</strong></p>
-<span id="more"></span>
+                <h2 id="1-1-Git-目录介绍"><a href="#1-1-Git-目录介绍" class="headerlink" title="1.1 Git 目录介绍"></a>1.1 Git 目录介绍</h2><span id="more"></span>
 
+<p><strong>项目初始化</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> git_study <span class="hljs-comment"># 随便创建一个目录</span><br><span class="hljs-built_in">cd</span> git_study <span class="hljs-comment"># 切换到该目录下</span><br>git init <span class="hljs-comment"># 初始化 之后会得到一个 .git 的目录</span><br><br><span class="hljs-comment"># 环境为 windows 10</span><br><span class="hljs-comment"># 使用 tree 查看 .git 目录结构，失败了：</span><br>tree .git <br>tree .git bash: tree: <span class="hljs-built_in">command</span> not found<br></code></pre></td></tr></table></figure>
 
 <p>windows下的 <code>git</code> 没有 <code>tree</code> 命令，默认调用的是<code>cmd</code>的<code>tree</code>命令，而<code>cmd</code> 提供的 <code>tree</code> 命令比较特殊,并不是常见的 <code>.exe</code> 结尾文件,而是 <code>.com</code> 结尾的文件。去<a target="_blank" rel="noopener" href="https://gnuwin32.sourceforge.net/packages/tree.htm">下载</a><code>tree-1.5.2.2-bin.zip</code>，解压，然后将 <code>tree-1.5.2.2-bin\bin\tree.exe</code> 文件复制到<code>git Bash</code> 的安装目录下 <code>Git\usr\bin</code> 下，然后就能使用<code>tree</code>命令了：</p>
