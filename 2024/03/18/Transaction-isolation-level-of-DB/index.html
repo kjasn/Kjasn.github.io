@@ -16,26 +16,27 @@
   <meta name="author" content="Kjasn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="新年快乐，同时今天也是 四宫辉夜 的生日 🎉！">
+    <meta name="description" content="数据库的隔离等级在这里讲讲数据库的隔离等级。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Happy New Year &amp;&amp; Happy Birthday~">
-<meta property="og:url" content="https://kjasn.github.io/2024/01/01/Happy-New-Year-Happy-Birthday/index.html">
+<meta property="og:title" content="数据库的隔离四大等级">
+<meta property="og:url" content="https://kjasn.github.io/2024/03/18/Transaction-isolation-level-of-DB/index.html">
 <meta property="og:site_name" content="Kjasn&#39;s World">
-<meta property="og:description" content="新年快乐，同时今天也是 四宫辉夜 的生日 🎉！">
+<meta property="og:description" content="数据库的隔离等级在这里讲讲数据库的隔离等级。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2024/01/01/F6kQJpGKtXqshUR.jpg">
-<meta property="article:published_time" content="2024-01-01T09:15:47.000Z">
-<meta property="article:modified_time" content="2024-01-01T12:54:58.331Z">
+<meta property="og:image" content="https://s2.loli.net/2024/03/19/l6s3vAJpwuhFQZq.png">
+<meta property="article:published_time" content="2024-03-18T15:41:19.000Z">
+<meta property="article:modified_time" content="2024-03-18T17:03:09.284Z">
 <meta property="article:author" content="Kjasn">
-<meta property="article:tag" content="日常记录">
+<meta property="article:tag" content="学习记录">
+<meta property="article:tag" content="八股文">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2024/01/01/F6kQJpGKtXqshUR.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2024/03/19/l6s3vAJpwuhFQZq.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Happy New Year &amp;&amp; Happy Birthday~ - Kjasn&#39;s World</title>
+  <title>数据库的隔离四大等级 - Kjasn&#39;s World</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -244,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Happy New Year &amp;&amp; Happy Birthday~"></span>
+            <span id="subtitle" data-typed-text="数据库的隔离四大等级"></span>
           
         </div>
 
@@ -255,8 +256,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-01 17:15" pubdate>
-          2024年1月1日 下午
+        <time datetime="2024-03-18 23:41" pubdate>
+          2024年3月18日 晚上
         </time>
       </span>
     
@@ -267,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          175 字
+          1.5k 字
         
       </span>
     
@@ -278,7 +279,7 @@
         
         
         
-          2 分钟
+          13 分钟
         
       </span>
     
@@ -323,23 +324,84 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Happy New Year &amp;&amp; Happy Birthday~</h1>
+            <h1 id="seo-header">数据库的隔离四大等级</h1>
             
             
               <div class="markdown-body">
                 
-                <p>新年快乐，同时今天也是 四宫辉夜 的生日 🎉！</p>
+                <h1 id="数据库的隔离等级"><a href="#数据库的隔离等级" class="headerlink" title="数据库的隔离等级"></a>数据库的隔离等级</h1><p>在这里讲讲数据库的隔离等级。</p>
 <span id="more"></span>
 
-<p>​					♡•<em>¨**･°: ｡･ : ｡ :ﾟ･</em><br>​					𝑯𝒂𝒑𝒑𝒚 𝑩𝒊𝒓𝒕𝒉𝒅𝒂𝒚<br>​								＆<br>​					𝑯𝒂𝒑𝒑𝒚 𝑵𝒆𝒘 𝒀𝒆𝒂𝒓<br>​					_･°: ｡ :･｡ :ﾟ･_•.♡•*¨</p>
-<p><img src="https://s2.loli.net/2024/01/01/WcsnMlxkYUIj9ar.jpg" srcset="/img/loading.gif" lazyload alt="辉夜酱"></p>
-<hr>
-<p>对了，还忘了一件 “妃” 常重要的事，今天也是四条真妃的生日 🤣，也附上图吧：</p>
-<p><img src="https://s2.loli.net/2024/01/01/J1KXwBgWoyHNubt.jpg" srcset="/img/loading.gif" lazyload alt="四条真妃"></p>
 <blockquote>
-<p>四条真妃不是败犬 🥺</p>
+<p>以 MySQL 和 Postgres 为例</p>
 </blockquote>
-<p>图片来源：<a target="_blank" rel="noopener" href="https://twitter.com/anime_kaguya">@anime_kaguya</a></p>
+<p>数据库事务的四大特性：</p>
+<ol>
+<li><p>原子性：整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作。</p>
+</li>
+<li><p>一致性：一个事务执行之前和执行之后都必须处于一致性状态。举例：假设用户 A 和用户 B 两者的钱加起来一共是 5000，那么不管 A 和 B 之间如何转账，转几次账，<strong>事务结束后两个用户的钱相加起来应该还得是 5000</strong>，<strong>即从一个一致性的状态转换到另一个一致性的状态</strong>，这就是事务的一致性。</p>
+</li>
+<li><p>隔离性：多个事务并发访问时，事务之间是相互隔离的，不应该被其他事务干扰。等级一般有：read_uncommitted，read_commit，read_repeatable，Serializable 串行化访问。</p>
+</li>
+<li><p>持久性：一个事务一旦被提交了，那么对数据库中数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。</p>
+</li>
+</ol>
+<h2 id="事务并发可能导致的问题"><a href="#事务并发可能导致的问题" class="headerlink" title="事务并发可能导致的问题"></a>事务并发可能导致的问题</h2><ul>
+<li><p>脏读(dirty read)：读取到未提交的数据。</p>
+</li>
+<li><p>不可重复读(read unrepeatable)：在同一个事务中，读取了其他事务（已提交）更改的数据，针对<strong>update</strong>操作。相同的查询语句得到不同的结果（针对单行数据）。</p>
+</li>
+<li><p>幻读(photom read)：在同一个事务中，读取了其他事务（已提交）新增的数据，针对<strong>insert 和 delete</strong>操作。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql&gt; <span class="hljs-keyword">select</span> @@global.transaction_isolation;  <span class="hljs-comment"># MySQL 默认隔离等级</span><br>+--------------------------------+<br>| @@global.transaction_isolation |<br>+--------------------------------+<br>| REPEATABLE-READ                |<br>+--------------------------------+<br>1 row <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>读未提交</li>
+</ol>
+<p><img src="https://s2.loli.net/2024/03/18/teTXc3Sry9nORmN.png" srcset="/img/loading.gif" lazyload alt="read uncommitted in MySQL"></p>
+<blockquote>
+<p>设置完后，该隔离等级 在 当前控制台 所有事务中都有效 （直到修改为其他隔离等级）</p>
+</blockquote>
+<p>出现脏读。</p>
+<ol start="2">
+<li>读已提交</li>
+</ol>
+<blockquote>
+<p>由于屏幕不够大所以修改查询语句为只返回需要的结果 ψ(._. )&gt;</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/03/18/Om3QFiRVnx26Kbs.png" srcset="/img/loading.gif" lazyload alt="read committed in MySQL"></p>
+<blockquote>
+<p>解决了脏读，但是没有解决 不可重复读 和 幻读。</p>
+</blockquote>
+<p>在事务 1 提交（第 12 步）后，事务 2 再次查询，但是结果与上一次（第 10 步）不同，且查询余额大于等于 900 的记录，返回记录条数也与上一次（第 11 步）不同。</p>
+<ol start="3">
+<li>可重复读</li>
+</ol>
+<p><img src="https://s2.loli.net/2024/03/19/KMRmLChXYPGQWxc.png" srcset="/img/loading.gif" lazyload alt="repeatable read in MySQL"></p>
+<p>第 12 步及之后的操作都是在 事务 1 已提交的基础上进行的。接着如果在 事务 2 对 <code>id = 1</code>账户余额 减 100，结果会如何？</p>
+<p><img src="https://s2.loli.net/2024/03/19/Q2OZ1JjwiaGRFXp.png" srcset="/img/loading.gif" lazyload alt="quiz1"></p>
+<p>**没有报错 ψ(._. )&gt;**，那么结果会是 600 OR 700 ？</p>
+<p>查询其余额:</p>
+<p><img src="https://s2.loli.net/2024/03/19/aSsIHJr7Uf8wX2M.png" srcset="/img/loading.gif" lazyload alt="next"></p>
+<p>结果是 600，没问题，因为 事务 1 中我们减去了 100。但是如果单从 事务 2 的视角来看，原来 800， 减 100， 结果是 600 ？！这算不算没有保持<strong>一致性</strong>呢？<br>由此来看，事务的并发修改操作还是对其他事务有影响。<br>为什么不组织修改并抛出错误呢？ （ Postgres 的 可重复读 就是这么实现的）。</p>
+<ol start="3">
+<li>可串行化</li>
+</ol>
+<p><img src="https://s2.loli.net/2024/03/19/oBua7XjAlcg2R5E.png" srcset="/img/loading.gif" lazyload alt="serializable read in MySQL 1"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 等待超时，自动结束了</span><br>RROR 1205 (HY000): Lock <span class="hljs-built_in">wait</span> <span class="hljs-built_in">timeout</span> exceeded; try restarting transaction<br></code></pre></td></tr></table></figure>
+
+<p>在 可串行化 等级中，MySQL 将所有 <code>select</code> 语句转化为 <code>select for share</code>， 一个事务中的 <code>select for share</code> 操作<strong>只允许其他事务进行读操作，而不能写</strong>。通过这样的锁使得 可串行化 这个等级解决了上一个等级的问题。</p>
+<p><img src="https://s2.loli.net/2024/03/19/BILZONqCYcAGldP.png" srcset="/img/loading.gif" lazyload alt="serializable read in MySQL 2"></p>
+<blockquote>
+<p>并发修改导致死锁，其中一个事务失败自动回滚，另一个事务的写操作就可以进行下去了</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/03/19/KyIU2c7XlvzrRoh.png" srcset="/img/loading.gif" lazyload alt="serializable read in MySQL 3"></p>
+<blockquote>
+<p>超时前提交，修改成功</p>
+</blockquote>
+<h2 id="下载最后"><a href="#下载最后" class="headerlink" title="下载最后"></a>下载最后</h2><p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4EajrPgJAk0&list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE&index=10">YouTube-TECH SCHOOL</a></p>
 
                 
               </div>
@@ -348,11 +410,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" class="print-no-link">#日常记录</a>
+        <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="print-no-link">#学习记录</a>
+      
+        <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/" class="print-no-link">#八股文</a>
       
     </div>
   
@@ -364,8 +449,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Happy New Year &amp;&amp; Happy Birthday~</div>
-      <div>https://kjasn.github.io/2024/01/01/Happy-New-Year-Happy-Birthday/</div>
+      <div>数据库的隔离四大等级</div>
+      <div>https://kjasn.github.io/2024/03/18/Transaction-isolation-level-of-DB/</div>
     </div>
     <div class="license-meta">
       
@@ -377,7 +462,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月1日</div>
+          <div>2024年3月18日</div>
         </div>
       
       
@@ -409,18 +494,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/18/Transaction-isolation-level-of-DB/" title="数据库的隔离四大等级">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数据库的隔离四大等级</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/11/Christmas-Tree/" title="Christmas Tree">
-                        <span class="hidden-mobile">Christmas Tree</span>
+                      <a href="/2024/01/01/Happy-New-Year-Happy-Birthday/" title="Happy New Year &amp;&amp; Happy Birthday~">
+                        <span class="hidden-mobile">Happy New Year &amp;&amp; Happy Birthday~</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -443,7 +522,7 @@
         var options = Object.assign(
           {"clientID":"586b27ef34cc613b598e","clientSecret":"55ea6f984b00e498b10d23be65c30bc2b97f0912","repo":"kjasn.github.io","owner":"kjasn","admin":["kjasn"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":true,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '188e66e036d85b2374094af58f3393b9'
+            id: 'c4f5eb407f65c9268bff9994beb1cc0b'
           }
         )
         var gitalk = new Gitalk(options);
